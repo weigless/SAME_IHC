@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAME - Sistema Administrativo para Microempreendedores</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <img src="imagens/logo_preto.png" alt="Logotipo SAME" class="logo" id="logo">
+    </header>
+    <main>
+        <div class="container">
+            <h2>Bem-vindo!</h2>
+            <div class="buttons">
+                <button onclick="location.href='login.html'">Login</button>
+                <button onclick="location.href='cadastro.html'">Novo Cadastro</button>
+                <button onclick="location.href='recuperar.html'">Recuperar Senha</button>
+            </div>
+            <div class="accessibility">
+                <label class="switch">
+                    <input type="checkbox" id="toggle-theme">
+                    <span class="slider round"></span>
+                </label>
+                <span id="theme-label">Tema Claro</span>
+            </div>
+        </div>
+    </main>
+    <script src="scripts.js"></script>
+</body>
+</html>

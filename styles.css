@@ -1,0 +1,155 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+:root {
+    --background-color: #ffffff;
+    --text-color: #000000;
+}
+
+.dark-theme {
+    --background-color: #000000;  /* Preto mais escuro */
+    --text-color: #ffffff;
+}
+
+header {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+header .logo {
+    max-width: 500px;
+    height: auto;
+}
+
+.container {
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--background-color);
+    color: var(--text-color);  /* Certifique-se de que o texto dentro do container também mude de cor */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.buttons button,
+.accessibility button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;  /* Arredondando as bordas dos botões */
+    transition: background-color 0.3s, color 0.3s; /* Adicionando transições para botões */
+}
+
+.accessibility {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Adicionando estilos para o botão de voltar e alinhando os campos do formulário */
+.button-group {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.button-group button {
+    margin: 0 10px; /* Adiciona margem entre os botões */
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: inline-block;
+    width: 220px;
+    text-align: left;
+    margin-right: 315px;
+}
+
+.form-group input {
+    width: calc(100% - 135px); /* Ajustando a largura dos campos para o alinhamento */
+    padding: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #2196F3;
+    color: #ffffff;
+}
+
+button:hover {
+    background-color: #0b7dda;
+}
+/* Estilos para o logotipo na página de cadastro */
+.small-logo {
+    max-width: 200px !important; /* Adicionei !important para garantir que o estilo seja aplicado */
+}
+.small-logo2 {
+    max-width: 400px !important; /* Adicionei !important para garantir que o estilo seja aplicado */
+}
