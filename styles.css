@@ -125,7 +125,7 @@ input:checked + .slider:before {
     display: inline-block;
     width: 220px;
     text-align: left;
-    margin-right: 315px;
+    margin-right:215px;
 }
 
 .form-group input {
@@ -148,7 +148,7 @@ button:hover {
 }
 /* Estilos para o logotipo na página de cadastro */
 .small-logo {
-    max-width: 200px !important; /* Adicionei !important para garantir que o estilo seja aplicado */
+    max-width: 300px !important; /* Adicionei !important para garantir que o estilo seja aplicado */
 }
 .small-logo2 {
     max-width: 400px !important; /* Adicionei !important para garantir que o estilo seja aplicado */
