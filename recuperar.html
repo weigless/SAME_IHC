@@ -10,18 +10,56 @@
     <header>
         <img src="imagens/logo_preto.png" alt="Logotipo SAME" class="logo small-logo2" id="logo">
     </header>
+    <button class="accessibility-btn" onclick="toggleAccessibilityMenu()">Acessibilidade</button>
+    <button class="support-btn" onclick="openSupportPopup()">Suporte</button>
     <main>
-        <div class="container">
+        <div class="container_2">
             <!-- Formulário de Recuperação de Senha -->
             
-            <form>
+            <form id="recuperarSenhaForm">
                 <h2>Recuperar Senha</h2>
-                <input type="email" placeholder="E-mail" required>
+                <input type="email" id="email" placeholder="E-mail" required>
                 <button type="submit">Enviar</button>
             </form> <br>
             <button onclick="location.href='index.html'">Voltar</button>
         </div>
+    </div>
+    <div id="accessibility-menu" class="accessibility-menu">
+        <h3>Opções de Acessibilidade</h3>
+        <div class="theme-switch-container">
+            <label class="theme-switch">
+                <input type="checkbox" id="theme-toggle" onchange="toggleTheme()">
+                <span class="slider round"></span>
+            </label>
+            <span id="theme-label">Tema Claro</span>
+        </div>
+        <button onclick="increaseFontSize()">Aumentar Fonte</button>
+        <button onclick="decreaseFontSize()">Diminuir Fonte</button>
+        <button onclick="resetAccessibility()">Redefinir Acessibilidade</button>
+    </div>
+    <div id="support-popup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closeSupportPopup()">&times;</span>
+            <h2>Suporte SAME</h2>
+            <p>Email: suporte@same.com.br</p>
+            <p>Whatsapp: (11) 91234-5678 </p>
+        </div>
+    </div>
     </main>
     <script src="scripts.js"></script>
+    <script>
+        document.getElementById('recuperarSenhaForm').addEventListener('submit', function(event) {
+            // Evitar o envio do formulário
+            event.preventDefault();
+            // Obter o email inserido
+            var email = document.getElementById('email').value;
+            // Simular o envio das informações de recuperação de senha (pode ser substituído pelo envio real)
+            // Aqui você pode adicionar a lógica para enviar o email de recuperação de senha
+            // Vou apenas exibir um alerta para simular o envio
+            window.alert('As informações de recuperação de senha foram enviadas para o email: ' + email);
+            // Limpar o campo de email
+            document.getElementById('email').value = '';
+        });
+    </script>
 </body>
 </html>

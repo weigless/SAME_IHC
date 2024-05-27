@@ -14,7 +14,7 @@
     <main>
         <div class="container">
             <h2>Realize o seu Cadastro</h2>
-            <form>
+            <form id="cadastroForm">
                 <div class="form-group">
                     <label for="nome-microempreendedor">Nome do Microempreendedor:</label>
                     <input type="text" id="nome-microempreendedor" name="nome-microempreendedor" required>
@@ -23,8 +23,6 @@
                     <label for="nome-empresa">Nome da Empresa:</label>
                     <input type="text" id="nome-empresa" name="nome-empresa" required>
                 </div>
-                
-                
                 <div class="form-group">
                     <label for="cnpj">CNPJ:</label>
                     <input type="text" id="cnpj" name="cnpj" required>
@@ -51,12 +49,28 @@
                 </div>
                 <div class="button-group">
                     <button type="submit">Cadastrar</button>
-                    <button onclick="location.href='index.html'">Voltar</button>
+                    <button type="button" onclick="location.href='index.html'">Voltar</button>
                 </div>
-
             </form>
         </div>
     </main>
     <script src="scripts.js"></script>
+    <script>
+        document.getElementById('cadastroForm').addEventListener('submit', function(event) {
+            // Evitar o envio do formulário
+            event.preventDefault();
+            // Validar se as senhas coincidem
+            var senha = document.getElementById('senha').value;
+            var confirmarSenha = document.getElementById('confirmar-senha').value;
+            if (senha !== confirmarSenha) {
+                window.alert('As senhas não coincidem. Por favor, tente novamente.');
+                return; // Impedir o envio do formulário
+            }
+            // Mostrar a mensagem de sucesso
+            window.alert('Cadastro realizado com sucesso!');
+            // Limpar os campos do formulário
+            document.getElementById('cadastroForm').reset();
+        });
+    </script>
 </body>
 </html>

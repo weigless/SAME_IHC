@@ -6,24 +6,40 @@
     <title>SAME - Sistema Administrativo para Microempreendedores</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="light-theme">
     <header>
         <img src="imagens/logo_preto.png" alt="Logotipo SAME" class="logo" id="logo">
     </header>
+    <button class="accessibility-btn" onclick="toggleAccessibilityMenu()">Acessibilidade</button>
+    <button class="support-btn" onclick="openSupportPopup()">Suporte</button>
     <main>
-        <div class="container">
+        <div class="container_2">
             <h2>Bem-vindo!</h2>
             <div class="buttons">
                 <button onclick="location.href='login.html'">Login</button>
                 <button onclick="location.href='cadastro.html'">Novo Cadastro</button>
                 <button onclick="location.href='recuperar.html'">Recuperar Senha</button>
             </div>
-            <div class="accessibility">
-                <label class="switch">
-                    <input type="checkbox" id="toggle-theme">
+        </div>
+        <div id="accessibility-menu" class="accessibility-menu">
+            <h3>Opções de Acessibilidade</h3>
+            <div class="theme-switch-container">
+                <label class="theme-switch">
+                    <input type="checkbox" id="theme-toggle" onchange="toggleTheme()">
                     <span class="slider round"></span>
                 </label>
                 <span id="theme-label">Tema Claro</span>
+            </div>
+            <button onclick="increaseFontSize()">Aumentar Fonte</button>
+            <button onclick="decreaseFontSize()">Diminuir Fonte</button>
+            <button onclick="resetAccessibility()">Redefinir Acessibilidade</button>
+        </div>
+        <div id="support-popup" class="popup">
+            <div class="popup-content">
+                <span class="close-btn" onclick="closeSupportPopup()">&times;</span>
+                <h2>Suporte SAME</h2>
+                <p>Email: suporte@same.com.br</p>
+                <p>Whatsapp: (11) 91234-5678 </p>
             </div>
         </div>
     </main>

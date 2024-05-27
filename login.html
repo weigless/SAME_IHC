@@ -10,18 +10,42 @@
     <header>
         <img src="imagens/logo_preto.png" alt="Logotipo SAME" class="logo small-logo2" id="logo">
     </header>
+    <button class="accessibility-btn" onclick="toggleAccessibilityMenu()">Acessibilidade</button>
+    <button class="support-btn" onclick="openSupportPopup()">Suporte</button>
     <main>
-        <div class="container">
+        <div class="container_2">
             <!-- Formulário de Login -->
-            <form>
+            <form onsubmit="return login()">
                 <h2>Fazer Login</h2><br>
-                <input type="email" placeholder="E-mail" required>
-                <input type="password" placeholder="Senha" required>
+                <input type="email" id="email" placeholder="E-mail" required>
+                <input type="password" id="senha" placeholder="Senha" required>
                 <button type="submit">Entrar</button>
+                <p id="error-msg" style="color: red;"></p>
             </form>
             <button onclick="location.href='index.html'">Voltar</button>
         </div>
     </main>
+    <div id="accessibility-menu" class="accessibility-menu">
+        <h3>Opções de Acessibilidade</h3>
+        <div class="theme-switch-container">
+            <label class="theme-switch">
+                <input type="checkbox" id="theme-toggle" onchange="toggleTheme()">
+                <span class="slider round"></span>
+            </label>
+            <span id="theme-label">Tema Claro</span>
+        </div>
+        <button onclick="increaseFontSize()">Aumentar Fonte</button>
+        <button onclick="decreaseFontSize()">Diminuir Fonte</button>
+        <button onclick="resetAccessibility()">Redefinir Acessibilidade</button>
+    </div>
+    <div id="support-popup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closeSupportPopup()">&times;</span>
+            <h2>Suporte SAME</h2>
+            <p>Email: suporte@same.com.br</p>
+            <p>Whatsapp: (11) 91234-5678 </p>
+        </div>
+    </div>
     <script src="scripts.js"></script>
 </body>
 </html>
