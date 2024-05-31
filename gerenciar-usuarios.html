@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Usuários - SAME</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Seu CSS existente */
+        .user-button {
+            margin-right: 10px; /* Adiciona margem à direita para separar os botões */
+        }
+        /* Centraliza os botões horizontalmente */
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        /* Estilos adicionais para os botões de usuário */
+        .user-buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px; /* Adiciona margem inferior entre os botões de usuário e o botão de voltar */
+        }
+        .back-button-container {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body class="light-theme">
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-and-shortcuts">
+                <img src="imagens/logo_same.png" alt="Logotipo SAME" class="logo small-logo2" id="logo">
+                <nav class="shortcut-links">
+                    <h2>Atalhos</h2>
+                    <a href="pagina_inicial.html">Menu de Opções</a>
+                    <a href="personalizar.html">Personalização</a>
+                    <a href="registrar_venda.html">Registrar Venda</a>
+                    <a href="fluxo-de-caixa.html">Fluxo de Caixa</a>
+                    <a href="gerenciar-estoque.html">Gerenciar Estoque</a>
+                    <a href="relatorios.html">Relatórios</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <button class="accessibility-btn" onclick="toggleAccessibilityMenu()">Acessibilidade</button>
+    <button class="support-btn" onclick="location.href='ajuda-e-suporte.html'">Ajuda e Suporte</button>
+    
+    <main>
+        <div class="container">
+            <h2>Gerenciar Usuários</h2>
+            <div class="buttons-container">
+                <div class="user-buttons">
+                    <button onclick="location.href='cadastrar_usuario.html'" class="user-button">Cadastrar Usuário</button>
+                    <button onclick="location.href='alterar_usuario.html'" class="user-button">Alterar Usuário</button>
+                    <button onclick="location.href='excluir_usuario.html'" class="user-button">Excluir Usuário</button>
+                </div>
+                <div class="back-button-container">
+                    <button onclick="history.back()" class="user-button">Voltar</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Break.NO Ltda. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

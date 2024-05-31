@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alterar Usuário - SAME</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 590px;
+            margin: auto;
+            padding: 20px;
+        }
+        h2 {
+            color: rgba(1, 10, 2, 0.945);
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+        button:hover {
+            background-color: #02ac43;
+        }
+        .form-group {
+            margin-bottom: 10px;
+        }
+        label {
+            display: inline-block;
+            width: 20%;
+            margin-bottom: 5px;
+            color: rgba(1, 10, 2, 0.945);
+        }
+        input, select {
+            width: 78%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .accessibility-btn, .support-btn {
+            margin: 10px;
+        }
+        .popup {
+            display: none;
+            width: 200px; /* Redimensionando a largura da janela */
+            height: 100px;
+            background-color: #2196F3;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px; /* Arredondando as bordas */
+            padding: 10px; /* Reduzindo o espaçamento interno */
+            position: fixed;
+            z-index: 1;
+            bottom: 30px;
+            left: calc(50% - 100px); /* Centralizando horizontalmente */
+            font-size: 18px; /* Reduzindo o tamanho da fonte */
+        }
+        .popup.show {
+            display: block; /* Alterado de visibility: visible; */
+        }
+    </style>
+</head>
+<body class="light-theme">
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-and-shortcuts">
+                <img src="imagens/logo_same.png" alt="Logotipo SAME" class="logo small-logo2" id="logo">
+                <nav class="shortcut-links">
+                    <h2>Atalhos</h2>
+                    <a href="pagina_inicial.html">Menu de Opções</a>
+                    <a href="personalizar.html">Personalização</a>
+                    <a href="registrar_venda.html">Registrar Venda</a>
+                    <a href="fluxo-de-caixa.html">Fluxo de Caixa</a>
+                    <a href="gerenciar-estoque.html">Gerenciar Estoque</a>
+                    <a href="relatorios.html">Relatórios</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <button class="accessibility-btn" onclick="toggleAccessibilityMenu()">Acessibilidade</button>
+    <button class="support-btn" onclick="location.href='ajuda-e-suporte.html'">Ajuda e Suporte</button>
+    
+    <main>
+        <div class="container">
+            <h2>Alterar Usuário</h2>
+            <form onsubmit="handleFormSubmit(event, 'Usuário alterado com sucesso!')" method="post">
+                <div class="form-group">
+                    <label for="usuario-id">Matrícula:</label>
+                    <input type="text" id="usuario-id" name="usuario-id" required>
+                </div>
+                <div class="form-group">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="senha">Senha:</label>
+                    <input type="password" id="senha" name="senha">
+                </div>
+                <div class="form-group">
+                    <label for="nivel-acesso">Nível de Acesso:</label>
+                    <select id="nivel-acesso" name="nivel-acesso">
+                        <option value="admin">Administrador</option>
+                        <option value="usuario">Usuário</option>
+                    </select>
+                </div>
+                <button type="submit">Alterar</button>
+                <button type="button" onclick="history.back()">Voltar</button>
+            </form>
+        </div>
+    </main>
+    
+    <div id="popup" class="popup"></div>
+    
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Break.NO Ltda. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        function handleFormSubmit(event, message) {
+            event.preventDefault();
+            var popup = document.getElementById("popup");
+            popup.textContent = message;
+            popup.classList.add("show");
+            setTimeout(function() {
+                popup.classList.remove("show");
+                document.getElementById('usuario-id').value = '';
+                document.getElementById('nome').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('senha').value = '';
+                document.getElementById('nivel-acesso').selectedIndex = 0;
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
