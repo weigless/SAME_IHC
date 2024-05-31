@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório de Vendas - SAME</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Seu CSS existente */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+            max-height: 500px; /* Altura máxima para o scroll */
+        }
+        .container.report-generated {
+            max-height: 400px; /* Altura máxima reduzida para o relatório */
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .form-group {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+        }
+        input[type="date"] {
+            width: 75%;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin: 5px;
+        }
+        .buttons-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        @media print {
+            body {
+                background-color: #fff;
+            }
+            .container {
+                max-height: none; /* Remove a altura máxima para impressão */
+                overflow: visible; /* Permite que o conteúdo exceda a altura */
+                box-shadow: none; /* Remove a sombra */
+            }
+            .header, .accessibility-btn, .support-btn, .buttons-container {
+                display: none; /* Oculta elementos que não precisam ser impressos */
+            }
+        }
+    </style>
+</head>
+<body class="light-theme">
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-and-shortcuts">
+                <img src="imagens/logo_same.png" alt="Logotipo SAME" class="logo small-logo2" id="logo">
+                <nav class="shortcut-links">
+                    <h2>Atalhos</h2>
+                    <a href="pagina_inicial.html">Menu de Opções</a>
+                    <a href="personalizar.html">Personalização</a>
+                    <a href="registrar_venda.html">Registrar Venda</a>
+                    <a href="fluxo-de-caixa.html">Fluxo de Caixa</a>
+                    <a href="gerenciar-estoque.html">Gerenciar Estoque</a>
+                    <a href="gerenciar-usuarios.html">Gerenciar Usuários</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <button class="accessibility-btn" onclick="toggleAccessibilityMenu()">Acessibilidade</button>
+    <button class="support-btn" onclick="location.href='ajuda-e-suporte.html'">Ajuda e Suporte</button>
+    
+    <main>
+        <div class="container" id="report-container">
+            <h1>Relatório de Vendas</h1>
+            <div id="date-selection">
+                <form id="sales-report-form">
+                    <div class="form-group">
+                        <label for="start-date">Data de Início:</label>
+                        <input type="date" id="start-date" name="start-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="end-date">Data de Término:</label>
+                        <input type="date" id="end-date" name="end-date" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="generate-report-btn">Gerar Relatório</button>
+                        <button type="button" onclick="history.back()">Voltar</button>
+                    </div>
+                </form>
+            </div>
+            <div id="sales-report" class="report-section" style="display: none;">
+                <!-- Aqui será exibido o relatório de vendas -->
+                <table id="sales-table">
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Os dados serão inseridos aqui via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="buttons-container" id="buttons-container">
+                <!-- Botões serão adicionados aqui via JavaScript -->
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Break.NO Ltda. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('sales-report-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var startDate = document.getElementById('start-date').value;
+            var endDate = document.getElementById('end-date').value;
+            var salesReport = generateSalesReport(startDate, endDate);
+            document.getElementById('sales-table').getElementsByTagName('tbody')[0].innerHTML = salesReport.salesReportHTML;
+            document.getElementById('date-selection').style.display = 'none';
+            document.getElementById('sales-report').style.display = 'block';
+            document.getElementById('report-container').classList.add('report-generated');
+            var buttonsContainer = document.getElementById('buttons-container');
+            buttonsContainer.innerHTML = '<p><strong>Total de Vendas: R$ ' + salesReport.totalSales.toFixed(2) + '</strong></p>' +
+                                          '<button onclick="window.print()">Imprimir</button>' +
+                                          '<button onclick="window.location.href=\'relatorio_vendas.html\'">Voltar</button>'; // Modificado aqui
+        });
+
+        function generateSalesReport(startDate, endDate) {
+            // Aqui você pode gerar o relatório de vendas com dados fictícios
+            // Por exemplo:
+            var salesData = [
+                { date: '2024-05-01', amount: 1500 },
+                { date: '2024-05-02', amount: 2000 },
+                { date: '2024-05-03', amount: 1800 },
+                { date: '2024-05-04', amount: 2200 },
+                { date: '2024-05-05', amount: 1900 },
+                { date: '2024-05-06', amount: 2100 },
+                { date: '2024-05-07', amount: 2400 },
+                { date: '2024-05-08', amount: 2300 },
+                { date: '2024-05-09', amount: 2000 },
+                { date: '2024-05-10', amount: 2500 }
+            ];
+
+            var totalSales = 0;
+            var salesReportHTML = '';
+            
+            salesData.forEach(function(sale) {
+                salesReportHTML += '<tr>' +
+                                   '<td>' + sale.date + '</td>' +
+                                   '<td>R$ ' + sale.amount.toFixed(2) + '</td>' +
+                                   '</tr>';
+                totalSales += sale.amount;
+            });
+
+            return { salesReportHTML: salesReportHTML, totalSales: totalSales };
+        }
+    </script>
+</body>
+</html>

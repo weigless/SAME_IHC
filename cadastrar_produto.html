@@ -101,6 +101,8 @@
             if (nomeProduto && codigoProduto && quantidadeProduto) {
                 // Lógica para cadastrar o produto (exemplo: enviar para um servidor)
                 alert(`Produto "${nomeProduto}" com código "${codigoProduto}" e quantidade "${quantidadeProduto}" cadastrado com sucesso!`);
+                // Limpar o formulário
+                document.getElementById('cadastro-produto-form').reset();
             }
         });
     </script>

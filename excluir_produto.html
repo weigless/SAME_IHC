@@ -55,43 +55,45 @@
                     <a href="gerenciar-usuarios.html">Gerenciar Usuários</a>
                     <a href="relatórios.html">Relatórios</a>
                 </nav>
-                </div>
-                </div>
-                </header>
-                <button class="accessibility-btn" onclick="toggleAccessibilityMenu()">Acessibilidade</button>
-<button class="support-btn" onclick="location.href='ajuda-e-suporte.html'">Ajuda e Suporte</button>
-
-<main>
-    <div class="container">
-        <h2>Excluir Produto</h2>
-        <form id="excluir-produto-form">
-            <div class="form-group">
-                <label for="codigo-produto">Código do Produto:</label>
-                <input type="text" id="codigo-produto" name="codigo-produto" required>
             </div>
-            <button type="submit">Excluir</button>
-            <button type="button" onclick="history.back()">Voltar</button>
-        </form>
-    </div>
-</main>
+        </div>
+    </header>
+    <button class="accessibility-btn" onclick="toggleAccessibilityMenu()">Acessibilidade</button>
+    <button class="support-btn" onclick="location.href='ajuda-e-suporte.html'">Ajuda e Suporte</button>
 
-<footer>
-    <div class="footer-content">
-        <p>&copy; 2024 Break.NO Ltda. Todos os direitos reservados.</p>
-    </div>
-</footer>
+    <main>
+        <div class="container">
+            <h2>Excluir Produto</h2>
+            <form id="excluir-produto-form">
+                <div class="form-group">
+                    <label for="codigo-produto">Código do Produto:</label>
+                    <input type="text" id="codigo-produto" name="codigo-produto" required>
+                </div>
+                <button type="submit">Excluir</button>
+                <button type="button" onclick="history.back()">Voltar</button>
+            </form>
+        </div>
+    </main>
 
-<script>
-    document.getElementById('excluir-produto-form').addEventListener('submit', function(event) {
-        event.preventDefault();
-        
-        const codigoProduto = document.getElementById('codigo-produto').value;
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Break.NO Ltda. Todos os direitos reservados.</p>
+        </div>
+    </footer>
 
-        if (codigoProduto) {
-            // Lógica para excluir o produto (exemplo: enviar para um servidor)
-            alert(`Produto com código "${codigoProduto}" excluído com sucesso!`);
-        }
-    });
-</script>
+    <script>
+        document.getElementById('excluir-produto-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const codigoProduto = document.getElementById('codigo-produto').value;
+
+            if (codigoProduto) {
+                // Lógica para excluir o produto (exemplo: enviar para um servidor)
+                alert(`Produto com código "${codigoProduto}" excluído com sucesso!`);
+                // Limpar o formulário
+                document.getElementById('excluir-produto-form').reset();
+            }
+        });
+    </script>
 </body>
 </html>

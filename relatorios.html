@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios - SAME</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Seu CSS existente */
+        .report-section {
+            margin-top: 30px;
+            text-align: center;
+        }
+        .report-option {
+            display: inline-block;
+            margin: 0 40px; /* Aumenta o espaçamento entre as opções */
+        }
+        .report-option a {
+            text-decoration: none; /* Remove o sublinhado padrão dos links */
+            transition: background-color 0.3s, color 0.3s; /* Adiciona uma transição suave */
+            display: block; /* Transforma o link em bloco */
+            padding: 10px; /* Adiciona um espaçamento interno */
+            border-radius: 5px; /* Adiciona bordas arredondadas */
+        }
+        .report-option a:hover {
+            background-color: rgba(138, 230, 85, 0.548); /* Destaque sutil ao passar o mouse */
+        }
+        .report-option a:hover strong {
+            color: #007bff; /* Altera a cor do texto dos relatórios ao passar o mouse */
+        }
+        .report-image {
+            width: 150px; /* Ajusta a largura da imagem */
+            display: block; /* Garante que a imagem seja exibida como bloco */
+            margin: 0 auto 10px; /* Centraliza a imagem e adiciona um espaço inferior */
+        }
+        .back-button-container {
+            text-align: center; /* Centraliza o botão "Voltar" */
+            width: 100%; /* Garante que o elemento pai tenha 100% de largura */
+        }
+    </style>
+</head>
+<body class="light-theme">
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-and-shortcuts">
+                <img src="imagens/logo_same.png" alt="Logotipo SAME" class="logo small-logo2" id="logo">
+                <nav class="shortcut-links">
+                    <h2>Atalhos</h2>
+                    <a href="pagina_inicial.html">Menu de Opções</a>
+                    <a href="personalizar.html">Personalização</a>
+                    <a href="registrar_venda.html">Registrar Venda</a>
+                    <a href="fluxo-de-caixa.html">Fluxo de Caixa</a>
+                    <a href="gerenciar-estoque.html">Gerenciar Estoque</a>
+                    <a href="gerenciar-usuarios.html">Gerenciar Usuários</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <button class="accessibility-btn" onclick="toggleAccessibilityMenu()">Acessibilidade</button>
+    <button class="support-btn" onclick="location.href='ajuda-e-suporte.html'">Ajuda e Suporte</button>
+    
+    <main>
+        <div class="container">
+            <h2>Relatórios</h2>
+            <div class="report-section">
+                <div class="report-option">
+                    <a href="relatorio_estoque.html"> <!-- Link para o relatório de estoque -->
+                        <img src="imagens/estoque.png" alt="Relatório de Estoque" class="report-image">
+                        <p><strong>Relatório de Estoque</strong></p>
+                    </a>
+                </div>
+                <div class="report-option">
+                    <a href="relatorio_vendas.html"> <!-- Link para o relatório de vendas -->
+                        <img src="imagens/venda.png" alt="Relatório de Vendas" class="report-image">
+                        <p><strong>Relatório de Vendas</strong></p>
+                    </a>
+                </div>
+            </div>
+            <div class="buttons-container">
+                <div class="back-button-container">
+                    <button onclick="history.back()" class="user-button">Voltar</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Break.NO Ltda. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
