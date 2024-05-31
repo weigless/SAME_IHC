@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificar Estoque - SAME</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+        h2 {
+            color: rgba(1, 10, 2, 0.945);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .low-stock {
+            color: red;
+        }
+        .product-list {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body class="light-theme">
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-and-shortcuts">
+                <img src="imagens/logo_same.png" alt="Logotipo SAME" class="logo small-logo2" id="logo">
+                <nav class="shortcut-links">
+                    <h2>Atalhos</h2>
+                    <a href="pagina_inicial.html">Menu de Opções</a>
+                    <a href="personalizar.html">Personalização</a>
+                    <a href="registrar_venda.html">Registrar Venda</a>
+                    <a href="fluxo-de-caixa.html">Fluxo de Caixa</a>
+                    <a href="gerenciar-usuarios.html">Gerenciar Usuários</a>
+                    <a href="relatorios.html">Relatórios</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <button class="accessibility-btn" onclick="toggleAccessibilityMenu()">Acessibilidade</button>
+    <button class="support-btn" onclick="location.href='ajuda-e-suporte.html'">Ajuda e Suporte</button>
+    
+    <main>
+        <div class="container">
+            <h2>Estoque Atual</h2>
+            <div class="product-list">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th>Quantidade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Caneta esferográfica</td>
+                            <td class="low-stock">8</td>
+                        </tr>
+                        <tr>
+                            <td>Borracha</td>
+                            <td>15</td>
+                        </tr>
+                        <tr>
+                            <td>Lápis de cor (12 unidades)</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td>Caderno universitário</td>
+                            <td class="low-stock">6</td>
+                        </tr>
+                        <tr>
+                            <td>Mochila escolar</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td>Estojo</td>
+                            <td>18</td>
+                        </tr>
+                        <tr>
+                            <td>Apontador</td>
+                            <td>12</td>
+                        </tr>
+                        <tr>
+                            <td>Régua</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td>Tesoura</td>
+                            <td class="low-stock">7</td>
+                        </tr>
+                        <tr>
+                            <td>Cola em bastão</td>
+                            <td>9</td>
+                        </tr>
+                        <tr>
+                            <td>Agenda escolar</td>
+                            <td>11</td>
+                        </tr>
+                        <tr>
+                            <td>Calculadora básica</td>
+                            <td>14</td>
+                        </tr>
+                        <tr>
+                            <td>Pasta organizadora</td>
+                            <td>13</td>
+                        </tr>
+                        <tr>
+                            <td>Corretivo</td>
+                            <td class="low-stock">4</td>
+                        </tr>
+                        <tr>
+                            <td>Livro didático</td>
+                            <td>17</td>
+                        </tr>
+                        <tr>
+                            <td>Caneta marca-texto</td>
+                            <td class="low-stock">5</td>
+                        </tr>
+                        <tr>
+                            <td>Lápis HB</td>
+                            <td>16</td>
+                        </tr>
+                        <tr>
+                            <td>Papel sulfite (500 folhas)</td>
+                            <td>22</td>
+                        </tr>
+                        <tr>
+                            <td>Giz de cera (24 cores)</td>
+                            <td>19</td>
+                        </tr>
+                        <tr>
+                            <td>Apagador de lousa</td>
+                            <td>10</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <button type="button" onclick="history.back()">Voltar</button>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Break.NO Ltda. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

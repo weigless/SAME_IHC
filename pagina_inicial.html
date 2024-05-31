@@ -8,43 +8,44 @@
 </head>
 <body>
     <header>
-        <img src="imagens/logo_preto.png" alt="Logotipo SAME" class="logo small-logo" id="logo">
+        <img src="imagens/logo_same.png" alt="Logotipo SAME" class="logo small-logo" id="logo">
     </header>
     <button class="accessibility-btn" onclick="toggleAccessibilityMenu()">Acessibilidade</button>
-    <button class="support-btn" onclick="openSupportPopup()">Suporte</button>
+    <button class="support-btn" onclick="location.href='ajuda-e-suporte.html'">Ajuda e Suporte</button> <!-- Alterado -->
     <main>
         <div class="container" id="homepage-options">
             <h2></h2>
             <div class="options">
                 <div class="option-group">
-                    <div class="option">
+                    <a href="personalizar.html" class="option">
                         <img src="imagens/personalizar.png" alt="Personalizar">
                         <p><strong>Personalizar</strong></p>
-                    </div>
-                    <div class="option">
+                    </a>
+                    
+                    <a href="gerenciar-estoque.html" class="option">
                         <img src="imagens/estoque.png" alt="Gerenciar Estoque">
                         <p><strong>Gerenciar</strong> <strong>Estoque</strong></p>
-                    </div>
+                    </a>
                 </div>
                 <div class="option-group">
-                    <div class="option">
+                    <a href="registrar_venda.html" class="option">
                         <img src="imagens/venda.png" alt="Gerenciar Vendas">
                         <p><strong>Gerenciar</strong> <strong>Vendas</strong></p>
-                    </div>
-                    <div class="option">
+                    </a>
+                    <a href="gerenciar-usuarios.html" class="option">
                         <img src="imagens/usuario.png" alt="Gerenciar Usuários">
                         <p><strong>Gerenciar</strong> <strong>Usuários</strong></p>
-                    </div>
+                    </a>
                 </div>
                 <div class="option-group">
-                    <div class="option">
+                    <a href="fluxo-de-caixa.html" class="option">
                         <img src="imagens/fluxo.png" alt="Fluxo de Caixa">
                         <p><strong>Fluxo</strong> <strong>de</strong> <strong>Caixa</strong></p>
-                    </div>
-                    <div class="option">
+                    </a>
+                    <a href="relatorios.html" class="option">
                         <img src="imagens/relatorio.png" alt="Relatórios">
                         <p class="relatorios"><strong>Relatórios</strong></p>
-                    </div>
+                    </a>
                 </div>
             </div>
             <button onclick="location.href='index.html'">Sair</button>
@@ -63,14 +64,23 @@
         <button onclick="decreaseFontSize()">Diminuir Fonte</button>
         <button onclick="resetAccessibility()">Redefinir Acessibilidade</button>
     </div>
-    <div id="support-popup" class="popup">
-        <div class="popup-content">
-            <span class="close-btn" onclick="closeSupportPopup()">&times;</span>
-            <h2>Suporte SAME</h2>
-            <p>Email: suporte@same.com.br</p>
-            <p>Whatsapp: (11) 91234-5678 </p>
+    
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Break.NO Ltda. Todos os direitos reservados.</p>
         </div>
-    </div>
+    </footer>
     <script src="scripts.js"></script>
 </body>
 </html>
+<style>
+    .option {
+        position: relative;
+        display: inline-block;
+        text-decoration: none;
+    }
+    .option:hover img {
+        box-shadow: 0 0 10px rgba(6, 212, 109, 0.5); /* Sombra ao passar o mouse */
+        
+    }
+</style>

@@ -8,9 +8,10 @@
 </head>
 <body>
     <header>
-        <img src="imagens/logo_preto.png" alt="Logotipo SAME" class="logo small-logo" id="logo">
+        <img src="imagens/logo_same.png" alt="Logotipo SAME" class="logo small-logo" id="logo">
     </header>
-    
+    <button class="accessibility-btn" onclick="toggleAccessibilityMenu()">Acessibilidade</button>
+    <button class="support-btn" onclick="location.href='ajuda-e-suporte.html'">Ajuda e Suporte</button> <!-- Alterado -->
     <main>
         <div class="container">
             <h2>Realize o seu Cadastro</h2>
@@ -53,7 +54,21 @@
                 </div>
             </form>
         </div>
+        <div id="accessibility-menu" class="accessibility-menu">
+            <h3>Opções de Acessibilidade</h3>
+            <div class="theme-switch-container">
+                <label class="theme-switch">
+                    <input type="checkbox" id="theme-toggle" onchange="toggleTheme()">
+                    <span class="slider round"></span>
+                </label>
+                <span id="theme-label">Tema Claro</span>
+            </div>
+            <button onclick="increaseFontSize()">Aumentar Fonte</button>
+            <button onclick="decreaseFontSize()">Diminuir Fonte</button>
+            <button onclick="resetAccessibility()">Redefinir Acessibilidade</button>
+        </div>
     </main>
+    
     <script src="scripts.js"></script>
     <script>
         document.getElementById('cadastroForm').addEventListener('submit', function(event) {

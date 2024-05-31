@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fluxo de Caixa - SAME</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+        h2 {
+            color: rgba(1, 10, 2, 0.945);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        select, input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #02ac43;
+        }
+    </style>
+</head>
+<body class="light-theme">
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-and-shortcuts">
+                <img src="imagens/logo_same.png" alt="Logotipo SAME" class="logo small-logo2" id="logo">
+                <nav class="shortcut-links">
+                    <h2>Atalhos</h2>
+                    <a href="pagina_inicial.html">Menu de Opções</a>
+                    <a href="personalizar.html">Personalização</a>
+                    <a href="registrar_venda.html">Registrar Venda</a>
+                    <a href="gerenciar-estoque.html">Gerenciar Estoque</a>
+                    <a href="gerenciar-usuarios.html">Gerenciar Usuários</a>
+                    <a href="relatorios.html">Relatórios</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    
+    <button class="accessibility-btn" onclick="toggleAccessibilityMenu()">Acessibilidade</button>
+    <button class="support-btn" onclick="location.href='ajuda-e-suporte.html'">Ajuda e Suporte</button>
+    
+    <main>
+        <div class="container">
+            <h2>Fluxo de Caixa</h2>
+            <form id="fluxo-caixa-form">
+                <div class="form-group">
+                    <label for="data-inicial">Data Inicial:</label>
+                    <input type="date" id="data-inicial" name="data-inicial" required>
+                </div>
+                <div class="form-group">
+                    <label for="data-final">Data Final:</label>
+                    <input type="date" id="data-final" name="data-final" required>
+                </div>
+                <button type="submit">Consultar</button>
+                <button type="button" onclick="history.back()">Voltar</button>
+            </form>
+        </div>
+    </main>
+    <div id="accessibility-menu" class="accessibility-menu">
+        <h3>Opções de Acessibilidade</h3>
+        <div class="theme-switch-container">
+            <label class="theme-switch">
+                <input type="checkbox" id="theme-toggle" onchange="toggleTheme()">
+                <span class="slider round"></span>
+            </label>
+            <span id="theme-label">Tema Claro</span>
+        </div>
+        <button onclick="increaseFontSize()">Aumentar Fonte</button>
+        <button onclick="decreaseFontSize()">Diminuir Fonte</button>
+        <button onclick="resetAccessibility()">Redefinir Acessibilidade</button>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Break.NO Ltda. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    
+    
+    <script>
+        document.getElementById('fluxo-caixa-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const dataInicial = document.getElementById('data-inicial').value;
+            const dataFinal = document.getElementById('data-final').value;
+
+            if (dataInicial && dataFinal) {
+                const url = `fluxo-de-caixa-detalhes.html?dataInicial=${dataInicial}&dataFinal=${dataFinal}`;
+                window.location.href = url;
+            }
+        });
+    </script>
+</body>
+</html>

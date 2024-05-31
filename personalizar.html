@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalizar - SAME</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .personalization-options {
+            display:flex;
+            flex-wrap:wrap;
+            gap: 15px; /* Reduzi o espaçamento entre as opções */
+            justify-content: space-between;
+        }
+        .option {
+            flex: 1 1 calc(45% - 10px); /* Reduzi a largura das opções */
+            padding: 8px; /* Reduzi o padding */
+            border: 1px solid #2007fc;
+            border-radius: 8px;
+            background-color: var(--bg-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .option h3 {
+            margin-top: 0;
+        }
+        .option input[type="text"],
+        .option select,
+        .option input[type="file"],
+        .option textarea {
+            width: 75%;
+            padding: 8px;
+            margin-top: 10px;
+            border: 1px solid #0400f5;
+            border-radius: 4px;
+            background-color: var(--input-bg-color);
+            color: var(--text-color);
+        }
+        
+        /* Estilo para o pop-up */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body class="light-theme">
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-and-shortcuts">
+                <img src="imagens/logo_same.png" alt="Logotipo SAME" class="logo small-logo2" id="logo">
+                <nav class="shortcut-links">
+                    <h2 style="color: rgba(1, 10, 2, 0.945);">Atalhos</h2>
+
+                    <a href="pagina_inicial.html">Menu de Opções</a>
+                    <a href="registrar_venda.html">Registrar Venda</a>
+                    <a href="fluxo-de-caixa.html">Fluxo de Caixa</a>
+                    <a href="gerenciar-estoque.html">Gerenciar estoque</a>
+                    <a href="gerenciar-usuarios.html">Gerenciar Usuários</a>
+                    <a href="relatorios.html">Relatórios</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    
+    
+    <button class="accessibility-btn" onclick="toggleAccessibilityMenu()">Acessibilidade</button>
+    <button class="support-btn" onclick="location.href='ajuda-e-suporte.html'">Ajuda e Suporte</button>
+    <main>
+        <div class="container_4">
+            <h3>Configurações</h3>
+            <div class="personalization-options">
+                <div class="option">
+                    <h4>Nome Fantasia da Empresa</h4>
+                    <input type="text" id="nomeFantasia" placeholder="Digite o nome fantasia">
+                </div>
+                <div class="option">
+                    <h4>Temas e Cores</h4   >
+                    <select id="temasCores">
+                        <option value="1">Tema Azul</option>
+                        <option value="2">Tema Verde</option>
+                        <option value="3">Tema Vermelho</option>
+                        <option value="4">Tema Amarelo</option>
+                        <option value="5">Tema Branco</option>
+                        <option value="6">Tema Preto</option>
+                    </select>
+                </div>
+                <div class="option">
+                    <h4>Logotipo</h4>
+                    <input type="file" id="logotipo">
+                </div>
+                
+            </div>
+            <button onclick="applySettings()">Aplicar</button>
+            <div id="popup" class="popup">
+                <p>Configurações aplicadas com sucesso!</p>
+            </div>
+            <button onclick="history.back()">Voltar</button>
+        </div>
+    </main>
+    <div id="accessibility-menu" class="accessibility-menu">
+        <h3>Opções de Acessibilidade</h3>
+        <div class="theme-switch-container">
+            <label class="theme-switch">
+                <input type="checkbox" id="theme-toggle" onchange="toggleTheme()">
+                <span class="slider round"></span>
+            </label>
+            <span id="theme-label">Tema Claro</span>
+        </div>
+        <button onclick="increaseFontSize()">Aumentar Fonte</button>
+        <button onclick="decreaseFontSize()">Diminuir Fonte</button>
+        <button onclick="resetAccessibility()">Redefinir Acessibilidade</button>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Break.NO Ltda. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    <script src="scripts.js"></script>
+    <script>
+        // Função para aplicar as configurações e mostrar o pop-up
+        function applySettings() {
+            // Aqui você pode adicionar lógica para aplicar as configurações, se necessário
+
+            // Exibir o pop-up
+            var popup = document.getElementById("popup");
+            popup.style.display = "block";
+
+            // Fechar o pop-up após 3 segundos
+            setTimeout(function() {
+                popup.style.display = "none";
+            }, 3000);
+        }
+    </script>
+
+</body>
+</html>
+

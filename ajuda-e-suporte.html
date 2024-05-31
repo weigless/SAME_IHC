@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajuda e Suporte - SAME</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="light-theme">
+    <header>
+        <img src="imagens/logo_same.png" alt="Logotipo SAME" class="logo small-logo2" id="logo">
+    </header>
+    <button class="accessibility-btn" onclick="toggleAccessibilityMenu()">Acessibilidade</button>
+    <button class="support-btn" onclick="location.href='ajuda-e-suporte.html'">Ajuda e Suporte</button>
+    <main>
+        <div class="container_3">
+            <h2>Contato</h2>
+            <p><b>Email: suporte@same.com.br</b></p>
+            <p><b>Telefone: (11) 91234-5678</b></p>
+            
+            <form id="contactForm" onsubmit="return sendMessage()">
+                <div class="form-group">
+                    <label for="nome">Nome Completo:</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefone">Telefone:</label>
+                    <input type="tel" id="telefone" name="telefone" required>
+                </div>
+                <div class="form-group">
+                    <label for="duvida">Mensagem:</label>
+                    <textarea id="duvida" name="duvida" rows="4" required></textarea>
+                </div>
+                <button type="submit">Enviar</button>
+                <button type="button" onclick="history.back()">Voltar</button>
+            </form>
+        </div>
+    </main>
+    <div id="accessibility-menu" class="accessibility-menu">
+        <h3>Opções de Acessibilidade</h3>
+        <div class="theme-switch-container">
+            <label class="theme-switch">
+                <input type="checkbox" id="theme-toggle" onchange="toggleTheme()">
+                <span class="slider round"></span>
+            </label>
+            <span id="theme-label">Tema Claro</span>
+        </div>
+        <button onclick="increaseFontSize()">Aumentar Fonte</button>
+        <button onclick="decreaseFontSize()">Diminuir Fonte</button>
+        <button onclick="resetAccessibility()">Redefinir Acessibilidade</button>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Break.NO Ltda. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    
+    <!-- Alerta personalizado -->
+    <div id="customAlert" class="custom-alert">
+        <div class="custom-alert-content">
+            <span class="custom-alert-close" onclick="closeAlert()">&times;</span>
+            <p id="customAlertMessage"></p>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+    <script>
+        function sendMessage() {
+            // Simulando o envio da mensagem (pode ser substituído pelo envio real)
+            // Exibir a mensagem de sucesso na janela de alerta personalizada
+            showAlert("Mensagem enviada com sucesso!<br>Retornaremos o contato em até 48 horas.");
+            document.getElementById('contactForm').reset(); // Limpar o formulário
+            return false; // Impedir o envio do formulário
+        }
+
+        function showAlert(message) {
+            document.getElementById('customAlertMessage').innerHTML = message; // Use innerHTML para suportar HTML
+            document.getElementById('customAlert').style.display = 'block';
+        }
+
+        function closeAlert() {
+            document.getElementById('customAlert').style.display = 'none';
+        }
+    </script>
+
+    <style>
+        .custom-alert {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #6354e7;
+            color: white;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            border-radius: 5px;
+        }
+
+        .custom-alert-content {
+            position: relative;
+        }
+
+        .custom-alert-close {
+            position:fixed;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+    </style>
+</body>
+</html>

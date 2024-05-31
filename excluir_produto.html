@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excluir Produto - SAME</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 300px;
+            margin: auto;
+            padding: 20px;
+        }
+        h2 {
+            color: rgba(1, 10, 2, 0.945);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"] {
+            width: 40%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #02ac43;
+        }
+    </style>
+</head>
+<body class="light-theme">
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-and-shortcuts">
+                <img src="imagens/logo_same.png" alt="Logotipo SAME" class="logo small-logo2" id="logo">
+                <nav class="shortcut-links">
+                    <h2>Atalhos</h2>
+                    <a href="pagina_inicial.html">Menu de Opções</a>
+                    <a href="personalizar.html">Personalização</a>
+                    <a href="registrar_venda.html">Registrar Venda</a>
+                    <a href="fluxo-de-caixa.html">Fluxo de Caixa</a>
+                    <a href="gerenciar-usuarios.html">Gerenciar Usuários</a>
+                    <a href="relatórios.html">Relatórios</a>
+                </nav>
+                </div>
+                </div>
+                </header>
+                <button class="accessibility-btn" onclick="toggleAccessibilityMenu()">Acessibilidade</button>
+<button class="support-btn" onclick="location.href='ajuda-e-suporte.html'">Ajuda e Suporte</button>
+
+<main>
+    <div class="container">
+        <h2>Excluir Produto</h2>
+        <form id="excluir-produto-form">
+            <div class="form-group">
+                <label for="codigo-produto">Código do Produto:</label>
+                <input type="text" id="codigo-produto" name="codigo-produto" required>
+            </div>
+            <button type="submit">Excluir</button>
+            <button type="button" onclick="history.back()">Voltar</button>
+        </form>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2024 Break.NO Ltda. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+<script>
+    document.getElementById('excluir-produto-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const codigoProduto = document.getElementById('codigo-produto').value;
+
+        if (codigoProduto) {
+            // Lógica para excluir o produto (exemplo: enviar para um servidor)
+            alert(`Produto com código "${codigoProduto}" excluído com sucesso!`);
+        }
+    });
+</script>
+</body>
+</html>

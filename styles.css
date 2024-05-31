@@ -9,434 +9,560 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     transition: background-color 0.3s, color 0.3s;
-}
+    background-image: url('../imagens/onda.png'); /* Caminho relativo para a imagem */
+    background-repeat: repeat-x; /* Repetir horizontalmente */
+    background-position: top; /* Posicionar a imagem no topo */
+    position: relative; /* Adiciona position relative para permitir a posição absoluta da imagem de fundo */
 
-:root {
-    --background-color: #ffffff;
-    --text-color: #000000;
-}
-
-.dark-theme {
-    --background-color: #000000;  /* Preto mais escuro */
-    --text-color: #ffffff;
-}
-
-header {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-}
-
-header .logo {
-    max-width: 500px;
-    height: auto;
 }
 
 
-.container_2 {
-    text-align: center;
-    border: 5px solid #019c30;
-    padding: 70px;
-    border-radius: 50px;
-    background-color: var(--background-color);
-    color: var(--text-color);  /* Certifique-se de que o texto dentro do container também mude de cor */
-    transition: background-color 0.3s, color 0.3s;
-}
-.container {
-    text-align: center;
-    border: 5px solid #019c30;
-    padding: 10px;
-    border-radius: 50px;
-    background-color: var(--background-color);
-    color: var(--text-color);  /* Certifique-se de que o texto dentro do container também mude de cor */
-    transition: background-color 0.3s, color 0.3s;
-}
 
-.buttons button,
-.accessibility button {
-    display: block;
-    width: 100%;
-    margin: 10px 0;
-    padding: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 10px;  /* Arredondando as bordas dos botões */
-    transition: background-color 0.3s, color 0.3s; /* Adicionando transições para botões */
-}
+    :root {
+        --background-color: #ffffff;
+        --text-color: #000000;
+    }
 
-.accessibility {
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    .dark-theme {
+        --background-color: #000000;  /* Preto mais escuro */
+        --text-color: #ffffff;
+    }
 
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-}
+    header {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
 
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
+    header .logo {
+        max-width: 500px;
+        height: auto;
+    }
 
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+
+    .container_2 {
+        text-align: center;
+        border: 5px solid #019c30;
+        padding: 70px;
+        border-radius: 50px;
+        background-color: var(--background-color);
+        color: var(--text-color);  /* Certifique-se de que o texto dentro do container também mude de cor */
+        transition: background-color 0.3s, color 0.3s;
+    }
+    .container {
+        text-align: center;
+        border: 5px solid #019c30;
+        padding: 10px;
+        border-radius: 50px;
+        background-color: var(--background-color);
+        color: var(--text-color);  /* Certifique-se de que o texto dentro do container também mude de cor */
+        transition: background-color 0.3s, color 0.3s;
+    }
+    .container_3 {
+        max-width: 600px; /* Defina o tamanho máximo do contêiner do formulário */
+        margin: 0 auto; /* Centralize o contêiner na página */
+        text-align: center;
+        border: 5px solid #019c30;
+        padding: 10px;
+        border-radius: 50px;
+        background-color: var(--background-color);
+        color: var(--text-color);  /* Certifique-se de que o texto dentro do container também mude de cor */
+        transition: background-color 0.3s, color 0.3s;
+    }
+    .container_4 {
+        max-width: 300px; /* Defina o tamanho máximo do contêiner do formulário */
+        margin: 0 auto; /* Centralize o contêiner na página */
+        text-align: center;            
+        padding: 10px;
+        border-radius: 50px;
+        background-color: var(--background-color);
+        color: var(--text-color);  /* Certifique-se de que o texto dentro do container também mude de cor */
+        transition: background-color 0.3s, color 0.3s;
+    }
+    #duvida {
+        width: calc(84% - 20px); /* Defina a largura do campo de mensagem, considerando margens */
+    }
+
+    .buttons button,
+    .accessibility button {
+        display: block;
+        width: 100%;
+        margin: 10px 0;
+        padding: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 10px;  /* Arredondando as bordas dos botões */
+        transition: background-color 0.3s, color 0.3s; /* Adicionando transições para botões */
+    }
+
+    .accessibility {
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: 0.4s;
+        border-radius: 34px;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: 0.4s;
+        border-radius: 50%;
+    }
+
+    input:checked + .slider {
+        background-color: #2196F3;
+    }
+
+    input:checked + .slider:before {
+        transform: translateX(26px);
+    }
+
+    /* Adicionando estilos para o botão de voltar e alinhando os campos do formulário */
+    .button-group {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .button-group button {
+        margin: 0 10px; /* Adiciona margem entre os botões */
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        display: inline-block;
+        width: 220px;
+        text-align: left;
+        margin-right:215px;
+    }
+
+    .form-group input {
+        width: calc(100% - 135px); /* Ajustando a largura dos campos para o alinhamento */
+        padding: 5px;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        background-color: #2196F3;
+        color: #ffffff;
+    }
+
+    button:hover {
+        background-color: #02ac43;
+    }
+    /* Estilos para o logotipo na página de cadastro */
+    .small-logo {
+        max-width: 350px !important; /* Adicionei !important para garantir que o estilo seja aplicado */
+    }
+    .small-logo2 {
+        max-width: 300px !important; /* Adicionei !important para garantir que o estilo seja aplicado */
+    }
+
+    /* Estilos para o botão de acessibilidade */
+    .accessibility-btn {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        background-color: #2196F3 !important; /* Cor azul com !important para garantir prioridade */
+        color: #fff !important; /* Texto branco com !important para garantir prioridade */
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 1000;
+        font-size: 14px;
+        font-weight: bold;
+        transition: background-color 0.3s, color 0.3s; /* Adicione transições */
+    }
+
+    .accessibility-btn:hover {
+        background-color: #0b7dda !important; /* Cor azul mais escura ao passar o mouse com !important */
+    }
+
+    /* Tema escuro */
+    .dark-theme .accessibility-btn {
+        background-color: #2196F3 !important; /* Cor azul */
+    }
+
+    .dark-theme .accessibility-btn:hover {
+        background-color: #0b7dda !important; /* Cor azul mais escura ao passar o mouse */
+    }
+
+
+    /* Estilos para o menu de acessibilidade */
+    .accessibility-menu {
+        display: none;
+        position: fixed;
+        top: 50px;
+        right: 10px;
+        background-color: #fff;
+        border: 1px solid #000;
+        padding: 10px;
+        z-index: 1000;
+        width: 250px; /* largura fixa para garantir que o conteúdo caiba */
+    }
+
+    .accessibility-menu h3 {
+        margin: 0 0 10px 0;
+    }
+
+    .accessibility-menu button,
+    .accessibility-menu .theme-switch-container {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 10px;
+        cursor: pointer;
+        font-size: 14px;
+        background-color: #fff;
+        color: #000;
+        border: none;
+    }
+
+    /* Estilos para o botão deslizante */
+    .theme-switch-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .theme-switch {
+        position: relative;
+        display: inline-block;
+        width: 34px;
+        height: 20px;
+    }
+
+    .theme-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: .4s;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 14px;
+        width: 14px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        transition: .4s;
+    }
+
+    input:checked + .slider {
+        background-color: #2196F3;
+    }
+
+    input:checked + .slider:before {
+        transform: translateX(14px);
+    }
+
+    .slider.round {
+        border-radius:
+        20px;
+    }
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+
+    /* Tema escuro */
+    .dark-theme {
+        background-color: #000;
+        color: #fff;
+    }
+
+    .dark-theme header {
+        background-color: #000;
+    }
+
+    .dark-theme .accessibility-menu {
+        background-color: #000;
+        color: #fff;
+        border: 1px solid #fff;
+    }
+
+    .dark-theme .accessibility-menu button,
+    .dark-theme .accessibility-menu .theme-switch-container {
+        background-color: #000;
+        color: #fff;
+        border: 1px solid #fff;
+    }
+
+    .dark-theme .accessibility-btn {
+        background-color: #fff;
+        color: #000;
+    }
+
+    /* Estilo para a imagem do logotipo no tema escuro */
+    .dark-theme .logo {
+        border: 2px solid #000;
+    }
+    .accessibility-menu .theme-switch-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%; /* Garante que a largura da linha seja igual à largura do quadro */
+        box-sizing: border-box; /* Inclui a borda e o preenchimento na largura total */
+        padding: 10px;
+        cursor: pointer;
+        font-size: 14px;
+        background-color: #fff;
+        color: #000;
+        border: none;
+        border-bottom: 1px solid #000; /* Adiciona uma borda na parte inferior */
+    }
+    .light-theme .accessibility-menu button,
+    .light-theme .accessibility-menu .theme-switch-container {
+        border: 1px solid #000; /* Adiciona borda preta */
+    }
+    /* Estilo para o botão de suporte */
+    .support-btn {
+        position: fixed;
+        top: 10px;
+        right: 150px; /* Posicionamento no canto superior direito */
+        background-color: #2196F3 !important; /* Cor azul com !important para garantir prioridade */
+        color: #fff !important; /* Texto branco com !important para garantir prioridade */
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 1000;
+        font-size: 14px;
+        font-weight: bold;
+        transition: background-color 0.3s, color 0.3s; /* Adicione transições de cor */
+    }
+
+    .support-btn:hover {
+        background-color: #0b7dda !important; /* Cor azul mais escura ao passar o mouse com !important */
+    }
+
+
+    /* Estilos para o pop-up de suporte */
+    .popup {
+        display: none;
+        position: absolute; /* Alterado para absolute */
+        top: 50px; /* Posicionamento abaixo do botão de acessibilidade */
+        right: 10px; /* Posicionamento no canto superior direito */
+        background-color: var(--background-color); /* Usando variáveis de tema */
+        color: var(--text-color); /* Usando variáveis de tema */
+        border: 1px solid var(--text-color); /* Usando variáveis de tema */
+        z-index: 1001;
+        padding: 20px;
+        transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Adicione transições */
+    }
+
+    .popup-content {
+        text-align: center;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        color: var(--text-color); /* Usando variáveis de tema */
+    }
+
+    .close-btn:hover {
+        color: #0b7dda; /* Cor do ícone de fechar quando o mouse está sobre ele */
+    }
+    #homepage-options .options {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        
+    }
+
+    /* Ajuste na largura dos grupos de opções */
+    #homepage-options .option-group {
+        width: calc(33.33% - 45px); /* Definindo para que haja 3 opções por linha */
+        box-sizing: border-box;
+        padding: 20px; /* Adiciona preenchimento ao redor das opções */
+        margin-bottom: 40px; /* Aumenta o espaçamento entre as linhas */
+        display: flex; /* Adiciona flex display */
+        flex-direction: column; /* Coluna de layout */
+        align-items: flex-end; /* Alinha itens no final do eixo transversal (verticalmente) */
+        justify-content: space-between; /* Distribui igualmente o espaço horizontal entre as opções */
+    }
+    
+    
+    
+
+    /* Ajuste no tamanho das imagens */
+    #homepage-options .option img {
+        max-width: 80px; /* Reduzindo um pouco mais o tamanho máximo das imagens */
+        max-height: 80px; /* Reduzindo um pouco mais o tamanho máximo das imagens */
+    }
+
+    /* Ajusta o espaçamento e alinhamento do texto */
+    #homepage-options .option p {
+        margin-top: 10px; /* Espaçamento entre a imagem e o texto */
+        text-align: center; /* Centraliza o texto */
+        #homepage-options .options {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    
+    .hidden {
+        display: none;
+    }
+
+
+    }
+    /* Estilo padrão para a logo */
+    .logo {
+        width: 450px; /* Ajuste o tamanho padrão conforme necessário */
+        height: auto;
+        transition: width 0.3s ease-in-out;
+    }
+
+    /* Consulta de mídia para telas menores */
+    @media (max-width: 1200px) {
+        .logo {
+            width: 120px;
+        }
+    }
+
+    @media (max-width: 992px) {
+        .logo {
+            width: 100px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .logo {
+            width: 80px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .logo {
+            width: 60px;
+        }
+    }
+    footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #ffffff; /* Cor de fundo padrão */
+        padding: 10px 0; /* Espaçamento interno superior e inferior reduzido */
+        text-align: center;
+    }
+    
+    /* Estilo para o tema escuro */
+    body.dark-theme footer {
+        background-color: #000000; /* Cor de fundo para tema escuro */
+        color: #fff; /* Cor do texto para tema escuro */
+    }
+    
+    .footer-content {
+        max-width: 1200px; /* Largura máxima da div do rodapé */
+        margin: 0 auto; /* Centralizar a div do rodapé */
+    }
+    
+    .shortcut-links {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 10px; /* Ajuste conforme necessário */
+    }
+    
+    .shortcut-links a {
+        color: #190aec; /* Cor dos links */
+        text-decoration:underline; /* Remover sublinhado */
+        margin-bottom: 5px; /* Espaçamento entre os links */
+        transition: color 0.3s; /* Efeito de transição para a cor do texto */
+    }
+    
+    .shortcut-links a:hover {
+        color: #f71a3f; /* Cor de destaque ao passar o mouse */
+    }
+    .logo-and-shortcuts {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .logo-and-shortcuts .shortcut-links {
+        margin-top: 10px; /* Espaçamento entre a logo e os atalhos */
+    }
+    
+    .back-button {
+    margin-left: 10px;
+    padding: 8px 16px;
     background-color: #ccc;
-    transition: 0.4s;
-    border-radius: 34px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
-
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    transition: 0.4s;
-    border-radius: 50%;
-}
-
-input:checked + .slider {
-    background-color: #2196F3;
-}
-
-input:checked + .slider:before {
-    transform: translateX(26px);
-}
-
-/* Adicionando estilos para o botão de voltar e alinhando os campos do formulário */
-.button-group {
+.buttons-container {
     display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.button-group button {
-    margin: 0 10px; /* Adiciona margem entre os botões */
-}
-
-.form-group {
+    flex-wrap: wrap;
+    justify-content: space-between;
     margin-bottom: 15px;
 }
 
-.form-group label {
-    display: inline-block;
-    width: 220px;
-    text-align: left;
-    margin-right:215px;
-}
-
-.form-group input {
-    width: calc(100% - 135px); /* Ajustando a largura dos campos para o alinhamento */
-    padding: 5px;
-}
-
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    background-color: #2196F3;
-    color: #ffffff;
-}
-
-button:hover {
-    background-color: #0b7dda;
-}
-/* Estilos para o logotipo na página de cadastro */
-.small-logo {
-    max-width: 250px !important; /* Adicionei !important para garantir que o estilo seja aplicado */
-}
-.small-logo2 {
-    max-width: 300px !important; /* Adicionei !important para garantir que o estilo seja aplicado */
-}
-
-/* Estilos para o botão de acessibilidade */
-.accessibility-btn {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    background-color: #2196F3 !important; /* Cor azul com !important para garantir prioridade */
-    color: #fff !important; /* Texto branco com !important para garantir prioridade */
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 1000;
-    font-size: 14px;
-    font-weight: bold;
-    transition: background-color 0.3s, color 0.3s; /* Adicione transições */
-}
-
-.accessibility-btn:hover {
-    background-color: #0b7dda !important; /* Cor azul mais escura ao passar o mouse com !important */
-}
-
-/* Tema escuro */
-.dark-theme .accessibility-btn {
-    background-color: #2196F3 !important; /* Cor azul */
-}
-
-.dark-theme .accessibility-btn:hover {
-    background-color: #0b7dda !important; /* Cor azul mais escura ao passar o mouse */
-}
-
-
-/* Estilos para o menu de acessibilidade */
-.accessibility-menu {
-    display: none;
-    position: fixed;
-    top: 50px;
-    right: 10px;
-    background-color: #fff;
-    border: 1px solid #000;
-    padding: 10px;
-    z-index: 1000;
-    width: 250px; /* largura fixa para garantir que o conteúdo caiba */
-}
-
-.accessibility-menu h3 {
-    margin: 0 0 10px 0;
-}
-
-.accessibility-menu button,
-.accessibility-menu .theme-switch-container {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 14px;
-    background-color: #fff;
-    color: #000;
-    border: none;
-}
-
-/* Estilos para o botão deslizante */
-.theme-switch-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.theme-switch {
-    position: relative;
-    display: inline-block;
-    width: 34px;
-    height: 20px;
-}
-
-.theme-switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    transition: .4s;
-}
-
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 14px;
-    width: 14px;
-    left: 3px;
-    bottom: 3px;
-    background-color: white;
-    transition: .4s;
-}
-
-input:checked + .slider {
-    background-color: #2196F3;
-}
-
-input:checked + .slider:before {
-    transform: translateX(14px);
-}
-
-.slider.round {
-    border-radius:
-    20px;
-}
-
-.slider.round:before {
-    border-radius: 50%;
-}
-
-/* Tema escuro */
-.dark-theme {
-    background-color: #000;
-    color: #fff;
-}
-
-.dark-theme header {
-    background-color: #000;
-}
-
-.dark-theme .accessibility-menu {
-    background-color: #000;
-    color: #fff;
-    border: 1px solid #fff;
-}
-
-.dark-theme .accessibility-menu button,
-.dark-theme .accessibility-menu .theme-switch-container {
-    background-color: #000;
-    color: #fff;
-    border: 1px solid #fff;
-}
-
-.dark-theme .accessibility-btn {
-    background-color: #fff;
-    color: #000;
-}
-
-/* Estilo para a imagem do logotipo no tema escuro */
-.dark-theme .logo {
-    border: 2px solid #000;
-}
-.accessibility-menu .theme-switch-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%; /* Garante que a largura da linha seja igual à largura do quadro */
-    box-sizing: border-box; /* Inclui a borda e o preenchimento na largura total */
-    padding: 10px;
-    cursor: pointer;
-    font-size: 14px;
-    background-color: #fff;
-    color: #000;
-    border: none;
-    border-bottom: 1px solid #000; /* Adiciona uma borda na parte inferior */
-}
-.light-theme .accessibility-menu button,
-.light-theme .accessibility-menu .theme-switch-container {
-    border: 1px solid #000; /* Adiciona borda preta */
-}
-/* Estilo para o botão de suporte */
-.support-btn {
-    position: fixed;
-    top: 10px;
-    right: 150px; /* Posicionamento no canto superior direito */
-    background-color: #2196F3 !important; /* Cor azul com !important para garantir prioridade */
-    color: #fff !important; /* Texto branco com !important para garantir prioridade */
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 1000;
-    font-size: 14px;
-    font-weight: bold;
-    transition: background-color 0.3s, color 0.3s; /* Adicione transições de cor */
-}
-
-.support-btn:hover {
-    background-color: #0b7dda !important; /* Cor azul mais escura ao passar o mouse com !important */
-}
-
-
-/* Estilos para o pop-up de suporte */
-.popup {
-    display: none;
-    position: absolute; /* Alterado para absolute */
-    top: 50px; /* Posicionamento abaixo do botão de acessibilidade */
-    right: 10px; /* Posicionamento no canto superior direito */
-    background-color: var(--background-color); /* Usando variáveis de tema */
-    color: var(--text-color); /* Usando variáveis de tema */
-    border: 1px solid var(--text-color); /* Usando variáveis de tema */
-    z-index: 1001;
-    padding: 20px;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Adicione transições */
-}
-
-.popup-content {
+.center {
     text-align: center;
 }
-
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    color: var(--text-color); /* Usando variáveis de tema */
+.stock-button {
+    margin-right: 15px; /* Adiciona margem à direita para espaçamento */
 }
 
-.close-btn:hover {
-    color: #0b7dda; /* Cor do ícone de fechar quando o mouse está sobre ele */
-}
-#homepage-options .options {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    
-}
-
-/* Ajuste na largura dos grupos de opções */
-#homepage-options .option-group {
-    width: calc(33.33% - 20px); /* Definindo para que haja 3 opções por linha */
-    box-sizing: border-box;
-    padding: 20px; /* Adiciona preenchimento ao redor das opções */
-    margin-bottom: 20px; /* Aumenta um pouco o espaçamento entre os grupos */
-}
-
-/* Ajuste no tamanho das imagens */
-#homepage-options .option img {
-    max-width: 150px; /* Reduzindo um pouco mais o tamanho máximo das imagens */
-    max-height: 150px; /* Reduzindo um pouco mais o tamanho máximo das imagens */
-}
-
-/* Ajusta o espaçamento e alinhamento do texto */
-#homepage-options .option p {
-    margin-top: 30px; /* Espaçamento entre a imagem e o texto */
-    text-align: center; /* Centraliza o texto */
-    #homepage-options .options {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-/* Ajuste na largura dos grupos de opções */
-#homepage-options .option-group {
-    width: calc(33.33% - 20px); /* Definindo para que haja 3 opções por linha */
-    box-sizing: border-box;
-    padding: 20px; /* Adiciona preenchimento ao redor das opções */
-    margin-bottom: 20px; /* Aumenta um pouco o espaçamento entre os grupos */
-}
-
-/* Ajuste no tamanho das imagens */
-#homepage-options .option img {
-    max-width: 150px; /* Reduzindo um pouco mais o tamanho máximo das imagens */
-    max-height: 150px; /* Reduzindo um pouco mais o tamanho máximo das imagens */
-}
-
-/* Ajusta o espaçamento e alinhamento do texto */
-#homepage-options .option p {
-    margin-top: 30px; /* Espaçamento entre a imagem e o texto */
-    text-align: center; /* Centraliza o texto */
-}
-.hidden {
-    display: none;
-}
-
-
+.buttons-container {
+    margin-bottom: 15px; /* Adiciona margem inferior para espaçamento entre os botões e o botão "Voltar" */
 }

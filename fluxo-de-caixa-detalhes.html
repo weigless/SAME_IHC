@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Fluxo de Caixa - SAME</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            max-width: 100%;
+            margin: auto;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-x: auto;
+            font-size: 11.5px;
+        }
+        h2 {
+            color: rgba(1, 10, 2, 0.945);   
+            font-size: 1.5em; /* Ajusta o tamanho da fonte do título */
+
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #02ac43;
+        }
+        #print-success {
+            display: none;
+            color: green;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body class="light-theme">
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-and-shortcuts">
+                <img src="imagens/logo_same.png" alt="Logotipo SAME" class="logo small-logo2" id="logo">
+                <nav class="shortcut-links">
+                    <h2>Atalhos</h2>
+                    <a href="pagina_inicial.html">Menu de Opções</a>
+                    <a href="personalizar.html">Personalização</a>
+                    <a href="registrar_venda.html">Registrar Venda</a>
+                    <a href="gerenciar-estoque.html">Gerenciar Estoque</a>
+                    <a href="gerenciar-usuarios.html">Gerenciar Usuários</a>
+                    <a href="relatorios.html">Relatórios</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <button class="accessibility-btn" onclick="toggleAccessibilityMenu()">Acessibilidade</button>
+    <button class="support-btn" onclick="location.href='ajuda-e-suporte.html'">Ajuda e Suporte</button>
+    
+    <main>
+        <div class="container">
+            <h2>Detalhes do Fluxo de Caixa</h2>
+            <div id="detalhes-fluxo-caixa"></div>
+            <button onclick="history.back()">Voltar</button>
+            <button onclick="printPage()">Imprimir</button>
+            <p id="print-success">Impressão realizada com sucesso!</p>
+        </div>
+    </main>
+    
+    
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Break.NO Ltda. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    
+    <script>
+        function getQueryParams() {
+            const params = {};
+            window.location.search.substring(1).split('&').forEach(param => {
+                const [key, value] = param.split('=');
+                params[key] = decodeURIComponent(value);
+            });
+            return params;
+        }
+
+        const params = getQueryParams();
+        const dataInicial = params.dataInicial;
+        const dataFinal = params.dataFinal;
+
+        // Função para gerar um número aleatório entre dois valores
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        // Gera dados fictícios com base nas datas fornecidas
+        function generateFakeData(startDate, endDate, numEntries) {
+            const data = [];
+            const start = new Date(startDate);
+            const end = new Date(endDate);
+            const diffTime = Math.abs(end - start);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+            for (let i = 0; i < numEntries; i++) {
+                const randomDay = getRandomInt(0, diffDays);
+                const date = new Date(start);
+                date.setDate(start.getDate() + randomDay);
+
+                const entrada = getRandomInt(100, 1000);
+                const saida = getRandomInt(50, 500);
+
+                data.push({
+                    data: date.toISOString().split('T')[0],
+                    entrada: entrada,
+                    saida: saida
+                });
+            }
+
+            // Ordena os dados por data em ordem crescente
+            data.sort((a, b) => new Date(a.data) - new Date(b.data));
+
+            return data;
+        }
+
+        const fluxoCaixaFicticio = generateFakeData(dataInicial, dataFinal, 6);
+
+        const detalhesContainer = document.getElementById('detalhes-fluxo-caixa');
+        let html = `<p><strong>Período:</strong> ${dataInicial} a ${dataFinal}</p>`;
+
+        html += '<table>';
+        html += '<tr><th>Data</th><th>Entrada (R$)</th><th>Saída (R$)</th></tr>';
+
+        fluxoCaixaFicticio.forEach(item => {
+            html += `<tr><td>${item.data}</td><td>${item.entrada.toFixed(2)}</td><td>${item.saida.toFixed(2)}</td></tr>`;
+        });
+
+        html += '</table>';
+
+        // Calcula o total de entradas e saídas no período
+        const totalEntradas = fluxoCaixaFicticio.reduce((sum, item) => sum + item.entrada, 0);
+        const totalSaidas = fluxoCaixaFicticio.reduce((sum, item) => sum + item.saida, 0);
+        const saldo = totalEntradas - totalSaidas;
+
+        html += `<p><strong>Total de Entradas (R$):</strong> ${totalEntradas.toFixed(2)}</p>`;
+        html += `<p><strong>Total de Saídas (R$):</strong> ${totalSaidas.toFixed(2)}</p>`;
+        html += `<p><strong>Saldo (R$):</strong> ${saldo.toFixed(2)}</p>`;
+
+        detalhesContainer.innerHTML = html;
+
+        function printPage() {
+            window.print();
+            document.getElementById('print-success').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

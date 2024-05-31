@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excluir Venda - SAME</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos do pop-up */
+        .popup-container {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            z-index: 9999;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .popup-container h4 {
+            margin-top: 0;
+        }
+
+        .popup-buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .popup-buttons button {
+            margin: 0 10px;
+            padding: 8px 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="light-theme">
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-and-shortcuts">
+                <img src="imagens/logo_same.png" alt="Logotipo SAME" class="logo small-logo2" id="logo">
+                <nav class="shortcut-links">
+                    <h2>Atalhos</h2>
+                    <a href="pagina_inicial.html">Menu de Opções</a>
+                    <a href="gerenciar-vendas.html">Gerenciar Vendas</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <button class="accessibility-btn" onclick="toggleAccessibilityMenu()">Acessibilidade</button>
+    <button class="support-btn" onclick="location.href='ajuda-e-suporte.html'">Ajuda e Suporte</button>
+    
+    <main>
+        <div class="container_4">
+            <h3>Excluir Venda</h3>
+            <form id="search-form" onsubmit="return buscarVenda()">
+                <div class="form-group">
+                    <label for="search-criteria">Critério de Busca:</label>
+                    <input type="text" id="search-criteria" name="search-criteria" placeholder="Digite o número da venda, produto ou CPF do cliente">
+                </div>
+                <div class="form-group"></div>
+                    <button type="submit">Buscar</button>
+                    <button type="button" onclick="history.back()">Voltar</button>
+                </div>
+            </form>
+            <div id="search-results" style="display: none;">
+                <h4>Resultados da Busca:</h4>
+                <ul id="search-list"></ul>
+            </div>
+        </div>
+        
+        <!-- Pop-up para confirmar exclusão de venda -->
+        <div id="confirmarExclusaoPopup" class="popup-container">
+            <h4>Deseja realmente excluir esta venda?</h4>
+            <div class="popup-buttons">
+                <button onclick="confirmarExclusao()">Sim</button>
+                <button onclick="fecharPopup('confirmarExclusaoPopup')">Não</button>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Break.NO Ltda. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    
+    <script src="scripts.js"></script>
+    <script>
+        var vendas = [
+            { numero: "0001", produto: "Produto 1", cpf: "123.456.789-10", valor: 50.00 },
+            { numero: "0002", produto: "Produto 2", cpf: "123.456.789-11", valor: 60.00 },
+            { numero: "0003", produto: "Produto 3", cpf: "123.456.789-12", valor: 70.00 },
+            { numero: "0004", produto: "Produto 4", cpf: "123.456.789-13", valor: 80.00 },
+            { numero: "0005", produto: "Produto 5", cpf: "123.456.789-14", valor: 90.00 }
+        ];
+
+        function buscarVenda() {
+            var searchCriteria = document.getElementById('search-criteria').value.toLowerCase();
+            var searchResults = vendas.filter(function(venda) {
+                return venda.numero.includes(searchCriteria) ||
+                       venda.produto.toLowerCase().includes(searchCriteria) ||
+                       venda.cpf.includes(searchCriteria);
+            });
+
+            var searchList = document.getElementById('search-list');
+            searchList.innerHTML = '';
+            if (searchResults.length > 0) {
+                searchResults.forEach(function(venda) {
+                    var li = document.createElement('li');
+                    li.textContent = 'Número: ' + venda.numero + ', Produto: ' + venda.produto + ', CPF: ' + venda.cpf + ', Valor: R$ ' + venda.valor.toFixed(2);
+                    searchList.appendChild(li);
+                });
+                document.getElementById('search-results').style.display = 'block';
+            } else {
+                alert('Nenhuma venda encontrada com o critério de busca fornecido.');
+            }
+
+            return false; // Impede que o formulário seja enviado
+        }
+
+        function excluirVenda() {
+            // Verifica se o número de venda está entre 0001 e 0005
+            var vendaNumero = document.getElementById('search-criteria').value;
+            if (vendaNumero >= "0001" && vendaNumero <= "0005") {
+                // Exibe o pop-up de confirmação
+                exibirPopup("confirmarExclusaoPopup");
+            } else {
+                alert('Por favor, insira um número de venda válido.');
+            }
+        }
+
+        function confirmarExclusao() {
+            // Coloque aqui a lógica para excluir a venda
+            alert('Venda excluída com sucesso!');
+            // Limpa a lista de resultados
+            document.getElementById('search-list').innerHTML = '';
+            // Esconde a seção de resultados
+            document.getElementById('search-results').style.display = 'none';
+            // Fecha o pop-up
+            fecharPopup("confirmarExclusaoPopup");
+        }
+    </script>
+</body>
+</html>

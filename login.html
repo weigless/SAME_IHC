@@ -8,10 +8,10 @@
 </head>
 <body>
     <header>
-        <img src="imagens/logo_preto.png" alt="Logotipo SAME" class="logo small-logo2" id="logo">
+        <img src="imagens/logo_same.png" alt="Logotipo SAME" class="logo small-logo2" id="logo">
     </header>
     <button class="accessibility-btn" onclick="toggleAccessibilityMenu()">Acessibilidade</button>
-    <button class="support-btn" onclick="openSupportPopup()">Suporte</button>
+    <button class="support-btn" onclick="location.href='ajuda-e-suporte.html'">Ajuda e Suporte</button> <!-- Alterado -->
     <main>
         <div class="container_2">
             <!-- Formulário de Login -->
@@ -38,14 +38,12 @@
         <button onclick="decreaseFontSize()">Diminuir Fonte</button>
         <button onclick="resetAccessibility()">Redefinir Acessibilidade</button>
     </div>
-    <div id="support-popup" class="popup">
-        <div class="popup-content">
-            <span class="close-btn" onclick="closeSupportPopup()">&times;</span>
-            <h2>Suporte SAME</h2>
-            <p>Email: suporte@same.com.br</p>
-            <p>Whatsapp: (11) 91234-5678 </p>
+    
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Break.NO Ltda. Todos os direitos reservados.</p>
         </div>
-    </div>
+    </footer>
     <script src="scripts.js"></script>
 </body>
 </html>
